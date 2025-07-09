@@ -21,9 +21,9 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>ou use email para se registrar</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" id="nome" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="senha" placeholder="Password" required>
                 <button type="submit">Cadastrar</button>
             </form>
         </div>
@@ -37,8 +37,8 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>ou use email e senha</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" name="email" id="login-email" placeholder="Email" required>
+                <input type="password" name="senha" id="login-senha" placeholder="Password" required>
                 <a class="senha" href="#">Esqueceu sua senha?</a>
                 <button type="submit">Login</button>
             </form>
@@ -78,23 +78,29 @@
     document.getElementById('formCadastrar').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const formData = new FormData(this);
-        const dados = Object.fromEntries(formData.entries());
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
 
-        fetch('http://localhost:3000/auth/cadastro', {
+        fetch('http://localhost:3000/auth/register', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dados)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, email, senha })
         })
-            .then(res => res.json())
-            .then(resultado => {
-                alert('Cadastro realizado com sucesso!');
-                console.log(resultado);
-                container.classList.remove("active");
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Erro no cadastro: ' + data.error);
+                } else {
+                    alert(data.mensagem || 'Cadastro realizado com sucesso!');
+                    container.classList.remove("active");
+                }
             })
-            .catch(erro => {
-                console.error('Erro na requisição:', erro);
-                alert('Erro ao cadastrar.');
+            .catch(err => {
+                console.error('Erro no cadastro:', err);
+                alert('Erro na comunicação com o servidor.');
             });
     });
 
@@ -112,11 +118,11 @@
         })
             .then(res => res.json())
             .then(resultado => {
-                if (resultado.erro) {
-                    alert(resultado.erro);
+                if (resultado.error) {
+                    alert('Erro no login: ' + resultado.error);
                 } else {
                     alert('Login realizado com sucesso!');
-                    window.location.href = 'index.html'; 
+                    window.location.href = 'loja.html';
                 }
             })
             .catch(erro => {
@@ -124,6 +130,7 @@
                 alert('Erro ao conectar com o servidor.');
             });
     });
+
 
 </script>
 
