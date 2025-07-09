@@ -1,7 +1,7 @@
 export default async function carrinhoRoutes(fastify, opts) {
   const { prisma } = fastify;
 
-   fastify.post('/pedido/criar', async (req, reply) => {
+  fastify.post('/pedido/criar', async (req, reply) => {
     const { usuarioId } = req.body;
 
     try {
