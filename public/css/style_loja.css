@@ -114,9 +114,11 @@ section.catalogo-type {
     background-color: #fad229;
     display: flex;
 }
+
 nav.menu {
-  width: 100%;
+    width: 100%;
 }
+
 .menu {
     padding: 0px;
 }
@@ -138,19 +140,20 @@ nav.menu {
 }
 
 .menu-item .submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  opacity: 0;
-  transform: translateY(10px); /* começa levemente deslocado pra baixo */
-  pointer-events: none;
-  flex-direction: column;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  min-width: 150px;
-  z-index: 10;
-  border-radius: 10px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    opacity: 0;
+    transform: translateY(10px);
+    /* começa levemente deslocado pra baixo */
+    pointer-events: none;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    z-index: 10;
+    border-radius: 10px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .menu-item .submenu li a {
@@ -167,32 +170,143 @@ nav.menu {
 }
 
 .menu-item:hover .submenu {
-  opacity: 1;
-  transform: translateY(0); /* volta ao lugar */
-  pointer-events: auto;
-  display: flex; /* só necessário se quiser garantir que o conteúdo continue em coluna */
+    opacity: 1;
+    transform: translateY(0);
+    /* volta ao lugar */
+    pointer-events: auto;
+    display: flex;
+    /* só necessário se quiser garantir que o conteúdo continue em coluna */
 }
-.menu-item .text{
+
+.menu-item .text {
     display: flex;
     align-items: center;
 }
-.menu-item .text .text-first{
+
+.menu-item .text .text-first {
     width: 200px;
 }
-.menu-item .text .text-image{
+
+.menu-item .text .text-image {
     padding: 10px;
     align-items: center;
 }
-.menu-item .text .text-image img{
+
+.menu-item .text .text-image img {
     width: 300px;
     height: 350px;
 }
 
-.menu-item .text .text-image2{
+.menu-item .text .text-image2 {
     padding: 10px;
     align-items: center;
 }
-.menu-item .text .text-image2 img{
+
+.menu-item .text .text-image2 img {
     width: 300px;
     height: 350px;
+}
+
+/* Catálogo Geral */
+section.catalogo-itens {
+    padding: 40px;
+    height: 60vh;
+}
+
+section.catalogo-itens .all-catalog {
+    color: #fad229;
+}
+
+.text-especial {
+    padding: 60px 10px;
+}
+
+section.catalogo-itens h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 90px;
+}
+
+section.catalogo-itens h2 {
+    font-size: 30px;
+    width: 60%;
+    text-align: justify;
+}
+
+/* Catálogo Completo */
+section.catalogo-completo {
+    margin-top: 20px;
+    padding: 60px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 302px;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 300px;
+    height: 400px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid #fad229;
+}
+
+.card p {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fad229;
+}
+
+.all-cards {
+    background-color: #fad229;
+    padding: 40px 0px;
+    border-radius: 20px;
+}
+
+.first {
+    padding: 20px 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-cards h1 {
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 90px;
+}
+
+section.back-site{
+    display: flex;
+    padding-bottom: 50px;
+    justify-content: center;
+}
+section.back-site button{
+    width: 600px;
+    height: 100px;
+    font-size: 30px;
+    background-color: #fad229;
+    border: 2px solid #fad229;
+    border-radius: 20px;
+    cursor:pointer;
+    transition: 0.3s;
+}
+section.back-site button:hover{
+    transform: scale(1.05);
+    background-color: transparent;
+    color: #fad229;
 }

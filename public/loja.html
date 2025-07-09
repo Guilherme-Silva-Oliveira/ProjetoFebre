@@ -144,30 +144,125 @@
                     </li>
                 </ul>
             </nav>
-
         </section>
+
+        <section class="catalogo-completo">
+            <div class="container">
+                <div class="all-cards">
+                    <h1>Catálogo Completo</h1>
+                    <div class="itens">
+                        <div class="first">
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="first">
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="first">
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="imgs/camisa-berno.jpeg" alt="">
+                                <div class="text">
+                                    <p>Camisa Febre II 25/26 <br> Torcedor Masculina</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="back-site">
+            <div class="container">
+                <a href="index.html"><button>Voltar para o Site</button></a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="icons">
+                    <div class="icon" id="instagram"><i class="bi bi-instagram"></i></div>
+                    <div class="icon" id="facebook"><i class="bi bi-facebook"></i></div>
+                    <div class="icon" id="whatsapp"><i class="bi bi-whatsapp"></i></div>
+                    <div class="icon" id="tiktok"><i class="bi bi-tiktok"></i></div>
+                </div>
+                <div class="bar"></div>
+                <div class="itens-nav">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#historia">Nossa História</a>
+                    <a href="galeria.html">Nossos Momentos</a>
+                    <a href="musicas.html">Músicas da Torcida</a>
+                    <a href="socio.html">Seja Sócio</a>
+                </div>
+                <div class="bar"></div>
+                <p>© 2025 São Bernardo FC · Todos os direitos reservados · Desenvolvido por Febre Amarela
+
+            </div>
+        </footer>
     </main>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="js/transition.js"></script>
 </body>
 <script>
-    let lastScroll = 0;
     const header = document.querySelector("header");
 
     window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
+        const scrollTop = window.pageYOffset;
 
-        if (currentScroll > 50 && currentScroll > lastScroll) {
-            // Scroll para baixo – esconder
-            gsap.to(header, { y: -150, opacity: 0, duration: 0.5, ease: "power2.out" });
-        } else if (currentScroll < lastScroll) {
-            // Scroll para cima – mostrar
+        if (scrollTop === 0) {
+            // No topo da página – mostrar header
             gsap.to(header, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" });
+        } else {
+            // Qualquer scroll – esconder header
+            gsap.to(header, { y: -150, opacity: 0, duration: 0.5, ease: "power2.out" });
         }
-
-        lastScroll = currentScroll;
     });
 </script>
+
 
 </html>
