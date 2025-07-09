@@ -24,6 +24,7 @@
                 <input type="text" id="nome" placeholder="Name" required>
                 <input type="email" id="email" placeholder="Email" required>
                 <input type="password" id="senha" placeholder="Password" required>
+                <input type="text" id="cpf" placeholder="CPF" required>
                 <button type="submit">Cadastrar</button>
             </form>
         </div>
@@ -59,7 +60,6 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 <script>
     const container = document.getElementById('container');
@@ -81,13 +81,14 @@
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
         const senha = document.getElementById('senha').value;
+        const cpf = document.getElementById('cpf').value;
 
         fetch('http://localhost:3000/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, senha })
+            body: JSON.stringify({ nome, email, senha, cpf})
         })
             .then(response => response.json())
             .then(data => {
