@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+  createdAt DateTime @default(now())
+
+// Adicionando o lado oposto da relação
+  presencas Presenca[]
+  pedidos  Pedido[]
+}
+
+model Jogo {
+  id       Int      @id @default(autoincrement())
+  data     DateTime
+  local    String
+  adversario String
+
+// Adicionando o lado oposto da relação
+  presencas Presenca[]
+}
+
+model Presenca {
+  id        Int      @id @default(autoincrement())
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  jogo      Jogo     @relation(fields: [jogoId], references: [id])
+  jogoId    Int
+  confirmado Boolean
+}
+
+model Produto {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  variacoes  ProdutoVariacao[]
+}
+
+model ProdutoVariacao {
+  id         Int      @id @default(autoincrement())
+  tamanho    String
+  quantidade Int
+  preco      Decimal
+  produtoId  Int
+  produto    Produto   @relation(fields: [produtoId], references: [id])
+  pedidos    PedidoProduto[]
+}
+
+model Pedido {
+  id         Int              @id @default(autoincrement())
+  usuarioId  Int
+  usuario    Usuario          @relation(fields: [usuarioId], references: [id])
+  precoTotal Decimal
+  data       DateTime         @default(now())
+  produtos   PedidoProduto[]
+}
+
+model PedidoProduto {
+  id              Int               @id @default(autoincrement())
+  pedidoId        Int
+  produtoVariacaoId Int
+  quantidade      Int
+  precoUnitario   Decimal
+
+  pedido          Pedido           @relation(fields: [pedidoId], references: [id])
+  produtoVariacao ProdutoVariacao @relation(fields: [produtoVariacaoId], references: [id])
+}
