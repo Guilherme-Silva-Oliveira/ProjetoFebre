@@ -49,3 +49,25 @@ barba.init({
   ]
 });
 
+const boxes = document.querySelectorAll(".box");
+const button = document.querySelector(".cta-button");
+
+function animateSequence() {
+  const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+
+  // Reset inicial
+  tl.set([boxes, button], { opacity: 0, y: 100 });
+
+  // Animações dos elementos
+  tl.to(boxes[0], { opacity: 1, y: 0, duration: 1 }, 0)
+    .to(boxes[1], { opacity: 1, y: 0, duration: 1 }, 2)
+    .to(boxes[2], { opacity: 1, y: 0, duration: 1 }, 4)
+    .to(button,   { opacity: 1, y: 0, duration: 1 }, 6)
+
+    // Espera 5 segundos com tudo visível
+    .to({}, { duration: 5 });
+
+  return tl;
+}
+
+animateSequence();
