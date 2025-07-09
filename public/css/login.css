@@ -8,10 +8,8 @@
 }
 
 body {
-    background-color: #f9d226;
-    background:  linear-gradient(to bottom, rgba(255, 215, 0, 0.9), rgba(10, 10, 9, 0.671)),
-    url('\Imgs/.jpg');
-    background-size: no-repeat;
+    background-image: url('../imgs/img-sobre-transition.jpg');
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
