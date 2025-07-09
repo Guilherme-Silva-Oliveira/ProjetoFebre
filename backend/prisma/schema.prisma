@@ -18,7 +18,10 @@ model Usuario {
   nome      String
   email     String   @unique
   senha     String
+  cpf              String    @unique
+  confirmPagamento Boolean   @default(false)
   createdAt DateTime @default(now())
+  
 
 // Adicionando o lado oposto da relação
   presencas Presenca[]
