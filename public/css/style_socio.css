@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+/* Header */
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #f9d226;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+header img{
+    width: 130px;
+    margin-bottom: 50%;
+}
+section.itens-header{
+    display: flex;
+    gap: 2%;
+    flex-direction: column;
+}
+section.itens-header a{
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
