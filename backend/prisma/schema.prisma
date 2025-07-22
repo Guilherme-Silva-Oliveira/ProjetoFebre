@@ -44,6 +44,15 @@ model Presenca {
   jogo      Jogo     @relation(fields: [jogoId], references: [id])
   jogoId    Int
   confirmado Boolean
+  qtdConvidados Int?    
+  convidados  Convidado[]
+}
+
+model Convidado {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  presencaId Int
+  presenca   Presenca @relation(fields: [presencaId], references: [id])
 }
 
 model Produto {
