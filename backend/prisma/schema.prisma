@@ -22,8 +22,6 @@ model Usuario {
   confirmPagamento Boolean   @default(false)
   createdAt DateTime @default(now())
   
-
-// Adicionando o lado oposto da relação
   presencas Presenca[]
   pedidos  Pedido[]
 }
@@ -33,8 +31,9 @@ model Jogo {
   data     DateTime
   local    String
   adversario String
+  campeonato String? 
+  jaPassou    Boolean  @default(false) 
 
-// Adicionando o lado oposto da relação
   presencas Presenca[]
 }
 
