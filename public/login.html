@@ -13,71 +13,80 @@
     <title>Login</title>
 </head>
 
-<body>
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form id="formCadastrar">
-                <h1>Criar conta!</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <span>ou use email para se registrar</span>
-                <input type="text" id="nome" placeholder="Name" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="senha" placeholder="Password" required>
-                <input type="text" id="cpf" placeholder="CPF" required>
-                <button type="submit" id="openModal">Cadastrar</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form id="formLogin">
-                <h1>Login</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <span>ou use email e senha</span>
-                <input type="email" name="email" id="login-email" placeholder="Email" required>
-                <input type="password" name="senha" id="login-senha" placeholder="Password" required>
-                <a class="senha" href="#" style="color: #fad229;">Esqueceu sua senha?</a>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1 class="subtitulo">Cadastre-se!</h1>
-                    <p>Cadastre-se com seus dados pessoais para usar todos os recursos do site
-                    </p>
-                    <button class="hidden" id="login">Login</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1 class="subtitulo"> Fala, Batateiro!</h1>
-                    <p>Insira seus dados pessoais para usar todos os recursos do site</p>
-                    <button class="hidden" id="register">Cadastrar-se</button>
+<body data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="contato">
+        <ul class="transition">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="container" id="container">
+            <div class="form-container sign-up">
+                <form id="formCadastrar">
+                    <h1>Criar conta!</h1>
+                    <div class="social-icons">
+                        <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                    <span>ou use email para se registrar</span>
+                    <input type="text" id="nome" placeholder="Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="senha" placeholder="Password" required>
+                    <input type="text" id="cpf" placeholder="CPF" required>
+                    <button type="submit" id="openModal">Cadastrar</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <form id="formLogin">
+                    <h1>Login</h1>
+                    <div class="social-icons">
+                        <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                    <span>ou use email e senha</span>
+                    <input type="email" name="email" id="login-email" placeholder="Email" required>
+                    <input type="password" name="senha" id="login-senha" placeholder="Password" required>
+                    <a class="senha" href="#" style="color: #fad229;">Esqueceu sua senha?</a>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1 class="subtitulo">Cadastre-se!</h1>
+                        <p>Cadastre-se com seus dados pessoais para usar todos os recursos do site
+                        </p>
+                        <button class="hidden" id="login">Login</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1 class="subtitulo"> Fala, Batateiro!</h1>
+                        <p>Insira seus dados pessoais para usar todos os recursos do site</p>
+                        <button class="hidden" id="register">Cadastrar-se</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal" id="modal">
-        <div class="modal-iner">
-            <div class="first-modal">
-                <h1>Pagamento</h1>
-                <p>Efetue o Pagamento para desfrutar de todos os benefícios de fazer parte da Barra Brava!</p>
-                <p><strong>OBS: O Login só será autorizado após o pagamento.</strong></p>
-                <a href="login.html"><button id="closeModal">Efetuei o Pagamento!</button></a>
-            </div>
-            <div class="second-modal">
+        <div class="modal" id="modal">
+            <div class="modal-iner">
+                <div class="first-modal">
+                    <h1>Pagamento</h1>
+                    <p>Efetue o Pagamento para desfrutar de todos os benefícios de fazer parte da Barra Brava!</p>
+                    <p><strong>OBS: O Login só será autorizado após o pagamento.</strong></p>
+                    <a href="login.html"><button id="closeModal">Efetuei o Pagamento!</button></a>
+                </div>
+                <div class="second-modal">
 
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 <script src="js/popup.js"></script>
 <script>
