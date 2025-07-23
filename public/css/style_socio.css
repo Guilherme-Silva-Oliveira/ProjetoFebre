@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 body {
@@ -31,18 +32,289 @@ header {
     justify-content: center;
     padding-top: 3%;
 }
-header img{
+
+header img {
     width: 130px;
-    margin-bottom: 50%;
+    margin-bottom: 20%;
 }
-section.itens-header{
+
+section.itens-header {
     display: flex;
-    gap: 2%;
+    gap: 5%;
     flex-direction: column;
 }
-section.itens-header a{
+
+section.itens-header a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     color: black;
+    transition: 0.3s;
+}
+
+section.itens-header a:hover {
+    transform: scale(1.05);
+}
+
+.user-icon img {
+    width: 100px;
+    transition: 0.3s;
+}
+
+.nav-link.active {
+    color: white;
+}
+
+/* Transição */
+ul.transition {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    margin: 0;
+    pointer-events: none;
+}
+
+ul.transition li {
+    transform: scaleY(0);
+    width: 20%;
+    list-style: none;
+}
+
+ul.transition li:nth-child(odd) {
+    background-color: #fad229;
+}
+
+ul.transition li:nth-child(even) {
+    background-color: black;
+}
+
+/* Geral */
+#geral {
+    height: 100vh;
+}
+
+#geral .container {
+    padding: 60px 0 90px 27%;
+}
+
+.all-cards {
+    width: 90%;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.all-cards .after {
+    width: 100%;
+    height: 32vh;
+    background-color: #fad229;
+    border: 1px solid #fad229;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.all-cards .after label {
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.all-cards .after h2 {
+    margin-top: -20px;
+}
+
+.all-cards .before label {
+    color: #fad229;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.all-cards .before .sbc h1 {
+    color: #f9d226;
+    font-size: 50px;
+}
+
+.all-cards .before .sbc img {
+    width: 80px;
+}
+
+.before h2 {
+    color: #f9d229;
+    margin-top: -20px;
+    font-size: 20px;
+}
+
+.before .times h1 {
+    color: #f9d229;
+}
+
+.all-cards .before {
+    width: 70%;
+    height: 22vh;
+    background-color: transparent;
+    border: 1px solid #fad229;
+    border-radius: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.times {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.times h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+.sbc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.sbc h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+}
+
+.sbc img {
+    width: 130px;
+}
+
+/* Confirmar */
+#confirmar {
+    height: 100vh;
+}
+
+#confirmar h1 {
+    color: black;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+#confirmar .all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+    background-image: url('../imgs/fundo-all.png');
+    background-repeat: no-repeat;
+}
+
+#confirmar .all h2 {
+    font-size: 20px;
+}
+
+#confirmar .all .buttons {
+    display: flex;
+    gap: 20px;
+    padding-top: 2%;
+}
+
+#confirmar .all .buttons button {
+    background-color: black;
+    width: 200px;
+    color: #f9d229;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#confirmar .all .buttons button:hover {
+    background-color: transparent;
+    color: black;
+}
+
+#confirmar .container {
+    padding: 20px 0 90px 21%;
+}
+
+/* Jogos */
+#jogos {
+    height: 100vh;
+}
+
+#jogos h1 {
+    color: #f9d229;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+#jogos h2{
+    color: #f9d229;
+}
+
+#jogos .container {
+    padding: 60px 0 90px 27%;
+}
+
+#jogos .all-jogos {
+    width: 100%;
+    height: 70vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Estilo da barra de rolagem */
+#jogos .all-jogos::-webkit-scrollbar {
+    width: 8px; /* largura da barra lateral */
+    background: transparent; /* fundo da barra transparente */
+}
+
+/* Parte que se move da barra */
+#jogos .all-jogos::-webkit-scrollbar-thumb {
+    background-color: yellow; /* cor da "bolinha" que rola */
+    border-radius: 10px;
+}
+
+/* Quando passar o mouse sobre o thumb */
+#jogos .all-jogos::-webkit-scrollbar-thumb:hover {
+    background-color: gold;
+}
+
+
+.all-jogos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 20px; /* Apenas padding superior */
+    padding-inline: 20px; /* padding lateral */
+    box-sizing: border-box;
+}
+
+.all-jogos .after{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f9d229;
+    height: 35vh;
+    width: 90%;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.all-jogos .after:hover{
+    transform: scale(1.02);
 }
