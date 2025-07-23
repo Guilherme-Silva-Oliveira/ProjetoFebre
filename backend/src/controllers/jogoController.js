@@ -21,7 +21,6 @@ exports.criarJogo = async (req, reply) => {
   }
 };
 
-// NOVA função para visão geral
 function formatarJogo(jogo) {
   if (!jogo) return null;
 
@@ -29,7 +28,7 @@ function formatarJogo(jogo) {
     adversario: jogo.adversario,
     local: jogo.local,
     campeonato: jogo.campeonato,
-    data: jogo.data.toLocaleDateString('pt-BR'),
+    data: jogo.data.toISOString(), 
     horario: jogo.data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
     confronto: `São Bernardo do Campo x ${jogo.adversario}`
   };
