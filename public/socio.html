@@ -31,7 +31,7 @@
             <a href="#geral" class="nav-link">Visão Geral</a>
             <a href="#confirmar" class="nav-link">Confirmar Presença</a>
             <a href="#jogos" class="nav-link">Jogos</a>
-            <a href="user.html" class="user-icon"><img src="imgs/person-circle.svg"></a>
+            <!-- <a href="user.html" class="user-icon"><img src="imgs/person-circle.svg"></a> -->
         </section>
     </header>
 
@@ -110,6 +110,28 @@
             </div>
         </div>
     </section>
+
+    <div id="popup-confirmar" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <p>Gostaria de Confirmar sua Presença:</p>
+            <div class="radio">
+                <input type="radio" name="presenca" id="somente-eu"> Somente Eu
+            </div>
+            <div class="radio">
+                <input type="radio" name="presenca" id="convidados"> Adicionar Convidados
+                <select id="quantidade" disabled>
+                    <option value="" selected disabled>Quantidade</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div id="inputs-container"></div>
+        </div>
+    </div>
+
     <section id="jogos">
         <div class="container">
             <h1>Todos os Jogos da Temporada</h1>
@@ -219,7 +241,7 @@
                     </div>
                     <h2>1º de Maio - 17/09 - 19h00</h2>
                 </div>
-                                <div class="after">
+                <div class="after">
                     <h2>Série C</h2>
                     <div class="times">
                         <div class="sbc">
@@ -234,7 +256,7 @@
                     </div>
                     <h2>1º de Maio - 17/09 - 19h00</h2>
                 </div>
-                                <div class="after">
+                <div class="after">
                     <h2>Série C</h2>
                     <div class="times">
                         <div class="sbc">
@@ -270,6 +292,88 @@
 
     // Atualiza sempre que o hash mudar (ex: ao clicar em outro link)
     window.addEventListener("hashchange", updateActiveLink);
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const confirmarBtn = document.querySelector('#confirmar .buttons button:first-child');
+        const popup = document.getElementById('popup-confirmar');
+        const closeBtn = popup.querySelector('.close-btn');
+
+        confirmarBtn.addEventListener('click', () => {
+            popup.classList.add('show');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.remove('show');
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const convidadosRadio = document.getElementById('convidados');
+        const quantidadeInput = document.getElementById('quantidade');
+
+        function verificarSelecao() {
+            quantidadeInput.disabled = !convidadosRadio.checked;
+        }
+
+        // Verifica sempre que mudar o valor dos radios
+        document.querySelectorAll('input[name="presenca"]').forEach(radio => {
+            radio.addEventListener('change', verificarSelecao);
+        });
+
+        // Verifica no carregamento inicial da página
+        verificarSelecao();
+    });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const somenteEuRadio = document.getElementById('somente-eu');
+  const convidadosRadio = document.getElementById('convidados');
+  const selectQuantidade = document.getElementById('quantidade');
+  const container = document.getElementById('inputs-container');
+
+  function limparInputs() {
+    container.innerHTML = '';
+    selectQuantidade.value = '';
+    selectQuantidade.disabled = true;
+  }
+
+  function verificarSelecao() {
+    if (convidadosRadio.checked) {
+      selectQuantidade.disabled = false;
+    } else {
+      limparInputs();
+    }
+  }
+
+  // Monitorar mudança dos radios
+  document.querySelectorAll('input[name="presenca"]').forEach(radio => {
+    radio.addEventListener('change', verificarSelecao);
+  });
+
+  // Monitorar mudança no select para gerar inputs
+  selectQuantidade.addEventListener('change', function () {
+    const qtd = parseInt(this.value);
+    container.innerHTML = ''; // Limpa inputs anteriores
+
+    for (let i = 1; i <= qtd; i++) {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = `Convidado ${i}`;
+      container.appendChild(input);
+    }
+  });
+
+  // Inicializar estado
+  limparInputs();
+});
+
 </script>
 
 

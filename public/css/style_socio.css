@@ -262,7 +262,7 @@ ul.transition li:nth-child(even) {
     font-size: 70px;
 }
 
-#jogos h2{
+#jogos h2 {
     color: #f9d229;
 }
 
@@ -279,13 +279,16 @@ ul.transition li:nth-child(even) {
 
 /* Estilo da barra de rolagem */
 #jogos .all-jogos::-webkit-scrollbar {
-    width: 8px; /* largura da barra lateral */
-    background: transparent; /* fundo da barra transparente */
+    width: 8px;
+    /* largura da barra lateral */
+    background: transparent;
+    /* fundo da barra transparente */
 }
 
 /* Parte que se move da barra */
 #jogos .all-jogos::-webkit-scrollbar-thumb {
-    background-color: yellow; /* cor da "bolinha" que rola */
+    background-color: yellow;
+    /* cor da "bolinha" que rola */
     border-radius: 10px;
 }
 
@@ -300,12 +303,14 @@ ul.transition li:nth-child(even) {
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
-    padding-top: 20px; /* Apenas padding superior */
-    padding-inline: 20px; /* padding lateral */
+    padding-top: 20px;
+    /* Apenas padding superior */
+    padding-inline: 20px;
+    /* padding lateral */
     box-sizing: border-box;
 }
 
-.all-jogos .after{
+.all-jogos .after {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -315,6 +320,103 @@ ul.transition li:nth-child(even) {
     border-radius: 20px;
     transition: 0.3s;
 }
-.all-jogos .after:hover{
+
+.all-jogos .after:hover {
     transform: scale(1.02);
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.popup.show {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-content {
+    background-color: #f9d229;
+    margin: 100px auto;
+    padding: 4% 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.popup-content p {
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.popup.show .popup-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-btn:hover{
+    transform: scale(1.1);
+    color: white;
+}
+.radio{
+    font-size: 20px;
+    text-align: left;
+    display: flex;
+    gap: 10px;
+    padding-top: 2%;
+    align-items: center;
+}
+.radio input{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    accent-color: black;
+}
+
+#quantidade{
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+}
+
+#inputs-container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 3%;
+    gap: 10px;
+}
+#inputs-container input{
+    height: 40px;
+    padding-left: 5%;
+    border-radius: 10px;
+    border: solid 1px black;
 }

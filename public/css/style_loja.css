@@ -137,6 +137,12 @@ nav.menu {
     cursor: pointer;
     padding: 10px 20px;
     font-size: 20px;
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    color: white;
 }
 
 .menu-item .submenu {
@@ -250,7 +256,8 @@ section.catalogo-completo {
     transition: 0.3s;
     cursor: pointer;
 }
-.card:hover{
+
+.card:hover {
     transform: scale(1.05);
 }
 
@@ -290,23 +297,106 @@ section.catalogo-completo {
     font-size: 90px;
 }
 
-section.back-site{
+section.back-site {
     display: flex;
     padding-bottom: 50px;
     justify-content: center;
 }
-section.back-site button{
+
+section.back-site button {
     width: 600px;
     height: 100px;
     font-size: 30px;
     background-color: #fad229;
     border: 2px solid #fad229;
     border-radius: 20px;
-    cursor:pointer;
+    cursor: pointer;
     transition: 0.3s;
 }
-section.back-site button:hover{
+
+section.back-site button:hover {
     transform: scale(1.05);
     background-color: transparent;
     color: #fad229;
+}
+
+.itens h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    padding-left: 3%;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.popup-content {
+  background-color: #fad229;
+  margin: auto;
+  border-radius: 10px;
+  padding: 0 0 0 40px;
+  width: 100%;
+  max-width: 500px;
+
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 40px;
+  font-size: 18px;
+}
+
+.popup-content img {
+  max-width: 60%;
+  height: auto;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fad229;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-btn:hover{
+    transform: scale(1.05);
+    color: white;
+}
+.container-popup{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.popup-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.popup-card .card-unique{
+    background-color: black;
+    padding: 10px 15px;
+    color: #fad229;
+    border-radius: 20px;
+    cursor: default;
+    transition: 0.3s;
+}
+.popup-card .card-unique:hover{
+    transform: scale(1.05);
+    background-color: white;
+    color: black;
 }
