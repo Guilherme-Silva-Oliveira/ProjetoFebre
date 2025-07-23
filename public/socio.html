@@ -14,6 +14,62 @@
     <link rel="stylesheet" href="css/style_socio.css">
 </head>
 
+<script>
+  function formatarData(dataStr) {
+  const data = new Date(dataStr);
+  return data.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
+async function carregarJogos() {
+  try {
+    const response = await fetch('http://localhost:3000/resumo-jogos');
+    const data = await response.json();
+
+    const container = document.querySelector('.all-cards'); 
+    container.innerHTML = ''; 
+
+    console.log(data);
+
+    const jogos = [
+      { jogo: data.ultimoJogo, tipo: 'before', label: 'Último jogo' },
+      { jogo: data.proximoJogo, tipo: 'after', label: 'Próximo jogo' },
+      { jogo: data.segundoProximo, tipo: 'before', label: 'Segundo próximo' }
+    ];
+
+    jogos.forEach(({ jogo, tipo, label }) => {
+      if (!jogo) return;
+
+      const card = document.createElement('div');
+      card.className = `card ${tipo}`;
+
+      const html = `
+        <h2>${jogo.campeonato}</h2>
+        <div class="times">
+            <div class="sbc">
+                <img src="imgs/sbc-logo.png" alt="SBC">
+                <h1>SBC FC</h1>
+            </div>
+            <h1>X</h1>
+            <div class="sbc">
+                <h1>${jogo.adversario}</h1>
+                <img src="imgs/${jogo.adversario + '.png' || 'default.png'}" alt="${jogo.adversario}">
+            </div>
+        </div>
+        <h2>${jogo.local} - ${formatarData(jogo.data)} - ${jogo.horario}</h2>
+      `;
+
+      card.innerHTML = html;
+      container.appendChild(card);
+    });
+
+  } catch (erro) {
+    console.error('Erro ao carregar os jogos:', erro);
+  }
+}
+
+  document.addEventListener('DOMContentLoaded', carregarJogos);
+</script>
+
 <body data-barba="wrapper">
     <main data-barba="container" data-barba-namespace="contato">
         <ul class="transition">
@@ -37,52 +93,8 @@
 
     <section id="geral">
         <div class="container">
-            <div class="all-cards">
-                <div class="before">
-                    <h2>Série C</h2>
-                    <div class="times">
-                        <div class="sbc">
-                            <img src="imgs/sbc-logo.png">
-                            <h1>SBC FC</h1>
-                        </div>
-                        <h1>X</h1>
-                        <div class="sbc">
-                            <h1>Santos</h1>
-                            <img src="imgs/santos.png">
-                        </div>
-                    </div>
-                    <h2>1º de Maio - 20/01 - 14h00</h2>
-                </div>
-                <div class="after">
-                    <h2>Série C</h2>
-                    <div class="times">
-                        <div class="sbc">
-                            <img src="imgs/sbc-logo.png">
-                            <h1>SBC FC</h1>
-                        </div>
-                        <h1>X</h1>
-                        <div class="sbc">
-                            <h1>Ceará</h1>
-                            <img src="imgs/ceara.png">
-                        </div>
-                    </div>
-                    <h2>1º de Maio - 17/09 - 19h00</h2>
-                </div>
-                <div class="before">
-                    <h2>Série C</h2>
-                    <div class="times">
-                        <div class="sbc">
-                            <img src="imgs/sbc-logo.png">
-                            <h1>SBC FC</h1>
-                        </div>
-                        <h1>X</h1>
-                        <div class="sbc">
-                            <h1>Bahia</h1>
-                            <img src="imgs/bahia.png">
-                        </div>
-                    </div>
-                    <h2>1º de Maio - 01/10 - 20h00</h2>
-                </div>
+            <div class="all-cards" id="jogos-container">
+                
             </div>
         </div>
     </section>
