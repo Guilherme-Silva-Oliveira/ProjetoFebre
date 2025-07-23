@@ -22,8 +22,6 @@ model Usuario {
   confirmPagamento Boolean   @default(false)
   createdAt DateTime @default(now())
   
-
-// Adicionando o lado oposto da relação
   presencas Presenca[]
   pedidos  Pedido[]
 }
@@ -33,8 +31,9 @@ model Jogo {
   data     DateTime
   local    String
   adversario String
+  campeonato String? 
+  jaPassou    Boolean  @default(false) 
 
-// Adicionando o lado oposto da relação
   presencas Presenca[]
 }
 
@@ -45,6 +44,15 @@ model Presenca {
   jogo      Jogo     @relation(fields: [jogoId], references: [id])
   jogoId    Int
   confirmado Boolean
+  qtdConvidados Int?    
+  convidados  Convidado[]
+}
+
+model Convidado {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  presencaId Int
+  presenca   Presenca @relation(fields: [presencaId], references: [id])
 }
 
 model Produto {
